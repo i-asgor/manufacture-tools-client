@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = ({children}) => {
     const navButton = <>
-                 <li><Link to='/'>Home</Link></li>
-                <li><Link to='/about'>About</Link></li>
-                <li><Link to='/blog'>Blog</Link></li>
-                <li><Link to='/login'>Login</Link></li>
+                 <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
+                <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
+                <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
+                <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
     </>
     return (
         <div class="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
         <div class="drawer-content flex flex-col">
-            <div class="w-full navbar bg-base-300">
+            <div class="w-full navbar bg-base-300 px-24">
             
             <div class="flex-1 px-2 mx-2">Navbar Title</div>
             <div class="flex-none lg:hidden">
@@ -21,7 +21,7 @@ const Navbar = ({children}) => {
                 </label>
             </div> 
             <div class="flex-none hidden lg:block">
-                <ul class="menu menu-horizontal">
+                <ul class="menu menu-horizontal gap-x-2">
                     {navButton}
                 </ul>
             </div>
