@@ -1,6 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({children}) => {
+    const navButton = <>
+                 <li><Link to='/'>Home</Link></li>
+                <li><Link to='/about'>About</Link></li>
+                <li><Link to='/blog'>Blog</Link></li>
+                <li><Link to='/login'>Login</Link></li>
+    </>
     return (
         <div class="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
@@ -15,18 +22,16 @@ const Navbar = () => {
             </div> 
             <div class="flex-none hidden lg:block">
                 <ul class="menu menu-horizontal">
-                <li><a>Navbar Item 1</a></li>
-                <li><a>Navbar Item 2</a></li>
+                    {navButton}
                 </ul>
             </div>
             </div>
-            Content
+            {children}
         </div> 
         <div class="drawer-side">
             <label for="my-drawer-3" class="drawer-overlay"></label> 
             <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
+            {navButton}
             
             </ul>
             
