@@ -32,8 +32,8 @@ const Login = () => {
     return (
         <div className='px-24 flex flex-col justify-center items-center h-screen'>
             <form onSubmit={handleLoginForm} className="grid grid-cols-1 gap-5">
-                <input type="email" ref={emailRef} placeholder="Enter email" required />
-                <input type="password" ref={passwordRef} placeholder="Password" required />
+                <input type="email" ref={emailRef} placeholder="Enter email" class="input input-bordered w-full max-w-lg" required />
+                <input type="password" ref={passwordRef} placeholder="Password" class="input input-bordered w-full max-w-lg" required />
                 <input type="submit" value='Login' className='btn btn-primary' />
             </form>     
         </div>
