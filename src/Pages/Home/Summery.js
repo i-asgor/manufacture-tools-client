@@ -3,9 +3,9 @@ import React from 'react';
 const Summery = () => {
     return (
        <div>
-           <h1 class="text-5xl font-bold">Business Summery</h1>
+           <h1 class="text-5xl font-bold mx-2">Business Summery</h1>
            <div className='flex justify-center py-5'>
-            <div class="stats shadow">  
+            <div class="stats stats-vertical md:stats-horizontal shadow">  
             <div class="stat">
                 <div class="stat-figure text-secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>

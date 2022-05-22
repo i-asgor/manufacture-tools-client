@@ -6,7 +6,7 @@ import Summery from './Summery';
 
 const Home = () => {
     return (
-        <div className='px-24'>
+        <div className='md:px-24'>
             <Banner></Banner>
             <Items></Items>
             <Summery></Summery>
