@@ -19,9 +19,9 @@ const Login = () => {
         error,
       ] = useSignInWithEmailAndPassword(auth);
     
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    if(loading || sending){
+    if(loading){
         return <Loading></Loading>
     }
 
@@ -43,15 +43,16 @@ const Login = () => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password);
+        // console.log(email, password);
         signInWithEmailAndPassword(email,password);
     }
 
     const resetPassword = () => {
         const email = emailRef.current.value;
+        // console.log(email)
         if(email){
             sendPasswordResetEmail(email);
-            toast.success('Sent email');
+            toast('Sent email');
         }
         else{
             toast.error('Please Enter Your Email')
