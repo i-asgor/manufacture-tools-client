@@ -1,9 +1,11 @@
 import React, { useRef } from 'react';
 import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import GoogleLogin from './GoogleLogin';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -16,8 +18,10 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+    
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
-    if(loading){
+    if(loading || sending){
         return <Loading></Loading>
     }
 
@@ -41,6 +45,17 @@ const Login = () => {
         const password = passwordRef.current.value;
         console.log(email, password);
         signInWithEmailAndPassword(email,password);
+    }
+
+    const resetPassword = () => {
+        const email = emailRef.current.value;
+        if(email){
+            sendPasswordResetEmail(email);
+            toast('Sent email');
+        }
+        else{
+            toast('Please Enter Your Email')
+        }
     }
 
     return (
@@ -75,8 +90,10 @@ const Login = () => {
             </form>
             {customError}
             <p className='mx-auto my-2 px-5'>Already Have an Account?<Link to='/register' class="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
+            <p className='mx-auto my-2 px-5'>Forget Your Password?<button onClick={resetPassword} class="label-text-alt link link-hover ml-2 text-xl text-primary">Reset password?</button></p>
             <div class="divider px-5">OR</div>
             <GoogleLogin></GoogleLogin>
+            <ToastContainer/>
         </div>
         </div>
         </div>

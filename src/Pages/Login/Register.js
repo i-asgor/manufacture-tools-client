@@ -18,6 +18,14 @@ const Register = () => {
         return <Loading></Loading>
     }
 
+    let customError;
+
+     if (error) {
+        customError=  <div>
+            <p className='text-error mx-5'>Error: {error.message}</p>
+          </div>
+    }
+
     const handleRegister = async e => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -66,6 +74,7 @@ const Register = () => {
                         </div>
                     </div>
                 </form>
+                {customError}
                 <p className='mx-auto my-2'>New to Manufacture?<Link to='/Login' class="label-text-alt link link-hover ml-2 text-xl text-primary">Login</Link></p>
             </div>
         </div>
