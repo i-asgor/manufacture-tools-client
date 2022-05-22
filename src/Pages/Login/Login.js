@@ -1,7 +1,9 @@
 import React, { useRef } from 'react';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Loading from '../Shared/Loading';
+import GoogleLogin from './GoogleLogin';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -14,6 +16,18 @@ const Login = () => {
         loading,
         error,
       ] = useSignInWithEmailAndPassword(auth);
+
+    if(loading){
+        return <Loading></Loading>
+    }
+
+    let customError;
+
+     if (error) {
+        customError=  <div>
+            <p className='text-error mx-5'>Error: {error.message}</p>
+          </div>
+    }
 
 
     if(user){
@@ -54,11 +68,15 @@ const Login = () => {
                 {/* <a href="#" class="label-text-alt link link-hover">Forgot password?</a> */}
                 </label>
             </div>
-            <div class="form-control mt-6">
+            <div class="form-control mt-2">
                 <button type='submit' class="btn btn-primary">Login</button>
             </div>
             </div>
             </form>
+            {customError}
+            <p className='mx-auto my-2 px-5'>Already Have an Account?<Link to='/register' class="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
+            <div class="divider px-5">OR</div>
+            <GoogleLogin></GoogleLogin>
         </div>
         </div>
         </div>
