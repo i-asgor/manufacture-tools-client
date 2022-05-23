@@ -8,6 +8,7 @@ import Users from './Pages/Dashboard/Users';
 import About from './Pages/Home/About';
 import Blog from './Pages/Home/Blog';
 import Home from './Pages/Home/Home';
+import PortFolio from './Pages/Home/PortFolio';
 import Purchase from './Pages/Items/Purchase';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
@@ -26,6 +27,7 @@ function App() {
           <Route path='/home' element={<Home />}></Route>
           <Route path='/about' element={<About />}></Route>
           <Route path='/blog' element={<Blog />}></Route>
+          <Route path='/portfolio' element={<PortFolio />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
           <Route path='/manufacture/:id' element={
