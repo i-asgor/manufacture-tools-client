@@ -1,16 +1,19 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import auth from '../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import GoogleLogin from './GoogleLogin';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -20,6 +23,14 @@ const Login = () => {
       ] = useSignInWithEmailAndPassword(auth);
     
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+
+    const [token] = useToken(user);
+
+    useEffect(()=>{
+        if(token){
+            navigate(from, {replace: true})
+        }
+    },[token,from,navigate])
 
     if(loading){
         return <Loading></Loading>
@@ -31,11 +42,6 @@ const Login = () => {
         customError=  <div>
             <p className='text-error mx-5'>Error: {error.message}</p>
           </div>
-    }
-
-
-    if(user){
-        navigate('/');
     }
     
 

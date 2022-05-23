@@ -8,7 +8,8 @@ const Navbar = ({children}) => {
     const [user] =useAuthState(auth);
 
     const handleSignOut = () =>{
-        signOut(auth)
+        signOut(auth);
+        localStorage.removeItem('accessToken');
     }
     const navButton = <>
                  <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>

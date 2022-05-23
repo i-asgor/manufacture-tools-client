@@ -2,7 +2,9 @@ import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import Loading from '../Shared/Loading';
+import GoogleLogin from './GoogleLogin';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -16,6 +18,8 @@ const Register = () => {
 
     const [updateProfile, updating, error1] = useUpdateProfile(auth);
 
+    const [token] = useToken(user);
+
     if(loading ||updating){
         return <Loading></Loading>
     }
@@ -28,6 +32,10 @@ const Register = () => {
           </div>
     }
 
+    if(token){
+        navigate('/home')
+    }
+
     const handleRegister = async e => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -36,10 +44,7 @@ const Register = () => {
         // console.log(name, email, password);
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({displayName:name})
-
-        if(user){
-            navigate('/home')
-        }
+        console.log('update done')
 
     }
     return (
@@ -79,6 +84,8 @@ const Register = () => {
                 </form>
                 {customError}
                 <p className='mx-auto my-2'>New to Manufacture?<Link to='/Login' class="label-text-alt link link-hover ml-2 text-xl text-primary">Login</Link></p>
+                <div class="divider px-5">OR</div>
+                <GoogleLogin></GoogleLogin>
             </div>
         </div>
         </div>

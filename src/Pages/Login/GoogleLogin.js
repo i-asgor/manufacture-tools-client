@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import google from "../../images/google.png";
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 const GoogleLogin = () => {
     const navigate = useNavigate();
@@ -11,6 +12,14 @@ const GoogleLogin = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+
+    const [token] = useToken(user);
+
+    useEffect(()=>{
+        if(token){
+            navigate(from, {replace: true})
+        }
+    },[token,from,navigate])
 
     if(loading){
         return <Loading></Loading>;
@@ -22,12 +31,6 @@ const GoogleLogin = () => {
         customError=  <div>
             <p className='text-error'>Error: {error.message}</p>
           </div>
-    }
-
-    
-
-    if(user){
-        navigate(from, {replace:true});
     }
 
     return (

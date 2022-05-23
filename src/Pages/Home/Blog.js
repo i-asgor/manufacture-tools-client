@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='px-24 max-h-fit my-5'>
+        <div className='md:px-24 max-h-fit my-5'>
             <div class="card w-full bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title">1. How will you improve the performance of a React Application?</h2>
