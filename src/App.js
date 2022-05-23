@@ -11,6 +11,7 @@ import Home from './Pages/Home/Home';
 import Purchase from './Pages/Items/Purchase';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
+import RequireAdmin from './Pages/Login/RequireAdmin';
 import RequireAuth from './Pages/Login/RequireAuth';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
@@ -36,7 +37,11 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
           <Route path='history' element={<MyHistory></MyHistory>}></Route>
-          <Route path='users' element={<Users></Users>}></Route>
+          <Route path='users' element={
+            <RequireAdmin>
+              <Users></Users>
+            </RequireAdmin>
+          }></Route>
         </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
