@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
-        <div class="drawer drawer-mobile min-h-screen">
+        <div class="drawer drawer-mobile min-h-screen md:px-24">
             <input id="dashboard-sidebar" type="checkbox" class="drawer-toggle" />
             <div class="drawer-content">
                 <h2 className='text-2xl font-bold text-purple-500'>Welcome to your Dashboard</h2>
