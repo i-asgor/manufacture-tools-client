@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
@@ -12,15 +12,17 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth,{sendEmailVerification: true});
 
-    if(loading){
+    const [updateProfile, updating, error1] = useUpdateProfile(auth);
+
+    if(loading ||updating){
         return <Loading></Loading>
     }
 
     let customError;
 
-     if (error) {
+     if (error ||error1) {
         customError=  <div>
             <p className='text-error mx-5'>Error: {error.message}</p>
           </div>
@@ -31,11 +33,12 @@ const Register = () => {
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(name, email, password);
+        // console.log(name, email, password);
         await createUserWithEmailAndPassword(email, password);
+        await updateProfile({displayName:name})
 
         if(user){
-            navigate('/home');
+            navigate('/home')
         }
 
     }
