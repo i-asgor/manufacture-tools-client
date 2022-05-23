@@ -14,18 +14,11 @@ const Navbar = ({children}) => {
                  <li><NavLink to='/' className='rounded-lg'>Home</NavLink></li>
                 <li><NavLink to='/about' className='rounded-lg'>About</NavLink></li>
                 <li><NavLink to='/blog' className='rounded-lg'>Blog</NavLink></li>
-                
                 {
-                    user?
-                    <>
-                    <li><NavLink to="/order" className='rounded-lg'>My Orders</NavLink></li>
-                    <li><NavLink to="/review" className='rounded-lg'>Add A Review</NavLink></li>
-                    <li><NavLink to="/profile" className='rounded-lg'>My Profile</NavLink></li>
-                    <li><button onClick={handleSignOut} className="btn btn-link text-white text-decoration-none">Logout</button></li>
-                    </>
-                    :
-                    <li><NavLink to='/login' className='rounded-lg'>Login</NavLink></li>
-                } 
+                    user && <li><Link to="/dashboard">Dashboard</Link></li>
+                }
+                <li>{user ? <button className="btn btn-ghost"  onClick={handleSignOut} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
+        
     </>
     return (
         <div class="drawer drawer-end">

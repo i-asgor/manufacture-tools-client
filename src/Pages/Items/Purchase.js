@@ -16,9 +16,12 @@ const Purchase = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        const newItem = parseInt(item.quantity) + parseInt(data.quantity);        
-        console.log(newItem, item.quantity, data.quantity)
+        // console.log(data)
+        let newItem;
+        if(data.quantity > 0){
+            newItem = parseInt(item.quantity) + parseInt(data.quantity); 
+        }       
+        // console.log(newItem, item.quantity, data.quantity)
         
         data = {'quantity':newItem};
         const {quantity,...rest} = item;
