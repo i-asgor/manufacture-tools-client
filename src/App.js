@@ -4,6 +4,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyReview from './Pages/Dashboard/MyReview';
+import Users from './Pages/Dashboard/Users';
 import About from './Pages/Home/About';
 import Blog from './Pages/Home/Blog';
 import Home from './Pages/Home/Home';
@@ -35,6 +36,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
           <Route path='history' element={<MyHistory></MyHistory>}></Route>
+          <Route path='users' element={<Users></Users>}></Route>
         </Route>
           <Route path='*' element={<NotFound />}></Route>
         </Routes>
