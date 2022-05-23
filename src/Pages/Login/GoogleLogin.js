@@ -20,7 +20,7 @@ const GoogleLogin = () => {
 
     if (error) {
         customError=  <div>
-            <p className='text-danger'>Error: {error.message}</p>
+            <p className='text-error'>Error: {error.message}</p>
           </div>
     }
 

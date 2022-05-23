@@ -1,6 +1,6 @@
 import React from 'react';
+import Items from '../Items/Items';
 import Banner from './Banner';
-import Items from './Items';
 import Reviews from './Reviews';
 import Summery from './Summery';
 
