@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddProduct from './Pages/Dashboard/AddProduct';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
@@ -42,6 +43,11 @@ function App() {
           <Route path='users' element={
             <RequireAdmin>
               <Users></Users>
+            </RequireAdmin>
+          }></Route>
+          <Route path='product' element={
+            <RequireAdmin>
+              <AddProduct></AddProduct>
             </RequireAdmin>
           }></Route>
         </Route>
