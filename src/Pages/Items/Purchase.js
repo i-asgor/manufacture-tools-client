@@ -28,7 +28,7 @@ const Purchase = () => {
         const purchase = {
             purchasetId: item._id,
             purchase: item.name,
-            quantity:event.quantity,
+            quantity:item.quantity,
             userEmail:user.email,
             userName:user.displayName,
             phone_number: event.number,
