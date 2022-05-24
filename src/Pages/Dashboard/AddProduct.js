@@ -4,7 +4,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
 const AddProduct = () => {
@@ -12,6 +12,7 @@ const AddProduct = () => {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm();
   const [user] = useAuthState(auth);
 
@@ -50,13 +51,15 @@ const AddProduct = () => {
           method: "POST",
           headers: {
             "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
           },
           body: JSON.stringify(product),
         })
           .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
-              toast(`Product Added Completed`);
+          .then((inserted) => {
+            if (inserted.success) {
+              toast.success(`Product Added Successfully`);
+              reset();
             } else {
               toast.error(`Product Added Failed`);
             }
@@ -280,6 +283,7 @@ const AddProduct = () => {
           value="Add"
         />
       </form>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

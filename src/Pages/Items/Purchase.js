@@ -9,7 +9,7 @@ const Purchase = () => {
     const {id} = useParams();
     const [item, setItem] = useState({});
     const [user, loading, error] = useAuthState(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit,reset } = useForm();
 
     
 
@@ -28,7 +28,7 @@ const Purchase = () => {
         const purchase = {
             purchasetId: item._id,
             purchase: item.name,
-            quantity:item.quantity,
+            quantity:event.quantity,
             userEmail:user.email,
             userName:user.displayName,
             phone_number: event.number,
@@ -46,7 +46,8 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    toast(`Purchase Completed`);
+                    toast.success(`Purchase Completed`);
+                    reset();
                 }
                 else{
                     toast.error(`Purchase Failed`)
@@ -191,8 +192,9 @@ const Purchase = () => {
                 
                 <input className='btn w-full max-w-xs text-white' type="submit" value="Purchased" />
                 </form>
-                </div>
+                
                 <ToastContainer></ToastContainer>
+                </div>
             </div>
             </div>
             </div>
