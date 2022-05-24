@@ -48,6 +48,7 @@ const ManageOrder = () => {
             {deleteOrder && <DeleteConfirmationModal
             deleteOrder={deleteOrder}
             refetch={refetch}
+            setDeleteOrder={setDeleteOrder}
             ></DeleteConfirmationModal>}
         </div>
     );

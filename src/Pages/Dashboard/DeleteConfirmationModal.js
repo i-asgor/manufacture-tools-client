@@ -1,13 +1,10 @@
 import React from 'react';
 import { toast } from 'react-toastify';
 
-const DeleteConfirmationModal = ({deleteOrder,refetch}) => {
+const DeleteConfirmationModal = ({deleteOrder,refetch,setDeleteOrder}) => {
     const {purchase,userEmail} =deleteOrder;
     // console.log(deleteOrder)
     const handleDelete = email => {
-
-        const proceed = window.confirm('Are You Sure?')
-        if(proceed){
             fetch(`http://localhost:5000/purchase/${email}`,{
             method:'DELETE',
             headers:{
@@ -19,10 +16,10 @@ const DeleteConfirmationModal = ({deleteOrder,refetch}) => {
             // console.log(data);
             if(data.deletedCount){
                 toast.success(`Product ${purchase.purchase} is Deleted`)
+                setDeleteOrder(null);
                 refetch();
             }
         })
-        }
         
     }
     return (
