@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = () => {
@@ -31,7 +31,7 @@ const Purchase = () => {
             quantity:item.quantity,
             userEmail:user.email,
             userName:user.displayName,
-            phone_number: event.phone,
+            phone_number: event.number,
             present_address: event.address,
         }
         console.log(purchase);
@@ -192,6 +192,7 @@ const Purchase = () => {
                 <input className='btn w-full max-w-xs text-white' type="submit" value="Purchased" />
                 </form>
                 </div>
+                <ToastContainer></ToastContainer>
             </div>
             </div>
             </div>

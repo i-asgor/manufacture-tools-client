@@ -1,7 +1,7 @@
 import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 
-const UserData = ({user,refetch}) => {
+const UserData = ({user,index,refetch}) => {
     const {email,role} =user;
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`,{
@@ -25,7 +25,7 @@ const UserData = ({user,refetch}) => {
     }
     return (
         <tr>
-            <th>{user._id}</th>
+            <th>{index+1}</th>
             <td>{user.email}</td>
             <td>
                 {
