@@ -46,7 +46,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    toast(`Purchase Completed`)
+                    toast(`Purchase Completed`);
                 }
                 else{
                     toast.error(`Purchase Failed`)
