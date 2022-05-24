@@ -2,6 +2,8 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddProduct from './Pages/Dashboard/AddProduct';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import ManageOrder from './Pages/Dashboard/ManageOrder';
+import ManageProduct from './Pages/Dashboard/ManageProduct';
 import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyReview from './Pages/Dashboard/MyReview';
@@ -48,6 +50,16 @@ function App() {
           <Route path='product' element={
             <RequireAdmin>
               <AddProduct></AddProduct>
+            </RequireAdmin>
+          }></Route>
+          <Route path='manageproduct' element={
+            <RequireAdmin>
+              <ManageProduct></ManageProduct>
+            </RequireAdmin>
+          }></Route>
+          <Route path='manageorder' element={
+            <RequireAdmin>
+              <ManageOrder></ManageOrder>
             </RequireAdmin>
           }></Route>
         </Route>

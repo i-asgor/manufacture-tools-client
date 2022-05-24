@@ -1,41 +1,43 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
-import UserData from './UserData';
+import ProductRow from './ProductRow';
 
-const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user',{
-        method: 'GET',
+const ManageProduct = () => {
+    const {data:products, isLoading, refetch} = useQuery('products',()=>fetch('http://localhost:5000/products',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res => res.json()));
-    // console.log(users)
-    
-    if (isLoading) {
-        return <Loading></Loading>
+    }).then(res=>res.json()));
+
+    if(isLoading){
+        return <Loading></Loading>;
     }
+    console.log(products)
+
     return (
         <div>
-            <h2 className='text-2xl'>All USERS: {users.length}</h2>
+            <h2 className='text-2xl'>Manage Product: {products.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
                     <tr>
                         <th></th>
-                        <th>Email</th>
-                        <th>Admin</th>
+                        <th>Product</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                         <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                         {
-                            users.map((user,index) => <UserData
-                            key={user._id}
+                            products.map((product,index) => <ProductRow
+                            key={product._id}
                             index={index}
-                            user={user}
+                            product={product}
                             refetch={refetch}
-                            ></UserData>)
+                            ></ProductRow>)
                         }                    
                     </tbody>
                 </table>
@@ -44,4 +46,4 @@ const Users = () => {
     );
 };
 
-export default Users;
+export default ManageProduct;
