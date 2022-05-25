@@ -6,6 +6,7 @@ import ManageOrder from './Pages/Dashboard/ManageOrder';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
 import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
+import MyProfile from './Pages/Dashboard/MyProfile';
 import MyReview from './Pages/Dashboard/MyReview';
 import Users from './Pages/Dashboard/Users';
 import About from './Pages/Home/About';
@@ -42,6 +43,7 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
           <Route path='history' element={<MyHistory></MyHistory>}></Route>
+          <Route path='profile' element={<MyProfile></MyProfile>}></Route>
           <Route path='users' element={
             <RequireAdmin>
               <Users></Users>
