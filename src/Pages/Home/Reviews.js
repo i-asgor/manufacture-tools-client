@@ -32,7 +32,7 @@ const Reviews = () => {
         <div>
             <div className='flex justify-between'>
                 <div>
-                <h1 class="text-5xl font-bold">Testimonial</h1>
+                <h1 class="text-5xl font-bold">Leadership Team</h1>
                 </div>
             </div>
 

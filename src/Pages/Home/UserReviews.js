@@ -19,7 +19,7 @@ const UserReviews = () => {
         <div>
             <div className='flex justify-between'>
                 <div>
-                <h1 class="text-5xl font-bold">Testimonial</h1>
+                <h1 class="text-5xl font-bold">Review</h1>
                 </div>
             </div>
 

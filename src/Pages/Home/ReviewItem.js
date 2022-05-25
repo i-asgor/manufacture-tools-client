@@ -4,7 +4,7 @@ const ReviewItem = ({review}) => {
     return (
         <div class="card w-full lg:max-w-lg bg-base-100 shadow-xl">
             <div class="card-body">
-                <p>It is a long established fact that by the readable content of a lot layout. The point of using Lorem a more-or-less normal distribu to using Content here, content</p>
+                <p>He is one of the tools manufacturing in Bangladesh. As a liberal businessman, expert in enhancing each product segment in local & international market. He devoted a great deal of energy and money to the cause of bringing about reconciliation between AA Tools and his partners.</p>
                 <div className='flex items-center my-5'>
                     <div class="avatar">
                         <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mr-5">
