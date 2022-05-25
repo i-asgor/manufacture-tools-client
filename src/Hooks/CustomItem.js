@@ -4,7 +4,7 @@ const CustomItem = () =>{
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/manufacture`)
+        fetch(`https://damp-taiga-65640.herokuapp.com/manufacture`)
         .then(res => res.json())
         .then(data => setItems(data))
     },[]);

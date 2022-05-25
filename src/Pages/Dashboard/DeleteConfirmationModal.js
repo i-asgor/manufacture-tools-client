@@ -5,7 +5,7 @@ const DeleteConfirmationModal = ({deleteOrder,refetch,setDeleteOrder}) => {
     const {purchase,userEmail} =deleteOrder;
     // console.log(deleteOrder)
     const handleDelete = email => {
-            fetch(`http://localhost:5000/purchase/${email}`,{
+            fetch(`https://damp-taiga-65640.herokuapp.com/purchase/${email}`,{
             method:'DELETE',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

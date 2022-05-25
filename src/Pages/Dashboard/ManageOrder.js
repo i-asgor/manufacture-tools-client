@@ -7,7 +7,7 @@ import OrderRow from './OrderRow';
 const ManageOrder = () => {
     const [deleteOrder, setDeleteOrder] = useState(null)
 
-    const {data:purchases, isLoading, refetch} = useQuery('purchases',()=>fetch('http://localhost:5000/order',{
+    const {data:purchases, isLoading, refetch} = useQuery('purchases',()=>fetch('https://damp-taiga-65640.herokuapp.com/order',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }

@@ -4,7 +4,7 @@ import UserSingleReview from './UserSingleReview';
 import Loading from '../Shared/Loading';
 
 const UserReviews = () => {
-    const { data: reviews, isLoading, refetch } = useQuery('reviews', () => fetch('http://localhost:5000/reviews',{
+    const { data: reviews, isLoading, refetch } = useQuery('reviews', () => fetch('https://damp-taiga-65640.herokuapp.com/reviews',{
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`

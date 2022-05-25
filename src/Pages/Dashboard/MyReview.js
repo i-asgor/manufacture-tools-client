@@ -24,7 +24,7 @@ const MyReview = () => {
               rating: event.rating,
             };
             // console.log("imgbb", result);
-            fetch("http://localhost:5000/reviews", {
+            fetch("https://damp-taiga-65640.herokuapp.com/reviews", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

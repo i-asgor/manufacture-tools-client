@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
-    const {data:products, isLoading, refetch} = useQuery('products',()=>fetch('http://localhost:5000/products',{
+    const {data:products, isLoading, refetch} = useQuery('products',()=>fetch('https://damp-taiga-65640.herokuapp.com/products',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }

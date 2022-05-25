@@ -14,7 +14,7 @@ const Purchase = () => {
     
 
     useEffect(()=>{
-        const url = `http://localhost:5000/manufacture/${id}`;
+        const url = `https://damp-taiga-65640.herokuapp.com/manufacture/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(data => setItem(data))
@@ -36,7 +36,7 @@ const Purchase = () => {
         }
         console.log(purchase);
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://damp-taiga-65640.herokuapp.com/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

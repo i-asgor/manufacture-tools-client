@@ -8,7 +8,7 @@ const ProductRow = ({product,index,refetch}) => {
 
         const proceed = window.confirm('Are You Sure?')
         if(proceed){
-            fetch(`http://localhost:5000/products/${email}`,{
+            fetch(`https://damp-taiga-65640.herokuapp.com/products/${email}`,{
             method:'DELETE',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

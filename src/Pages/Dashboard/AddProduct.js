@@ -47,7 +47,7 @@ const AddProduct = () => {
           picture:img
         };
         // console.log("imgbb", result);
-        fetch("http://localhost:5000/items", {
+        fetch("https://damp-taiga-65640.herokuapp.com/items", {
           method: "POST",
           headers: {
             "content-type": "application/json",

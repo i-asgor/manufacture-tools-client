@@ -6,7 +6,7 @@ const ItemDetails = () => {
     const [item, setItem] = useState({});
 
     useEffect(()=>{
-        const url = `http://localhost:5000/manufacture/${id}`;
+        const url = `https://damp-taiga-65640.herokuapp.com/manufacture/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(data => setItem(data))
