@@ -15,7 +15,7 @@ const DeleteConfirmationModal = ({deleteOrder,refetch,setDeleteOrder}) => {
         .then(data => {
             // console.log(data);
             if(data.deletedCount){
-                toast.success(`Product ${purchase.purchase} is Deleted`)
+                toast.success(`Product ${purchase} is Deleted`)
                 setDeleteOrder(null);
                 refetch();
             }

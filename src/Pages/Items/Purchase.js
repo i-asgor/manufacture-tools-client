@@ -28,7 +28,8 @@ const Purchase = () => {
         const purchase = {
             purchasetId: item._id,
             purchase: item.name,
-            quantity:item.quantity,
+            quantity:event.product_quantity,
+            price:item.price,
             userEmail:user.email,
             userName:user.displayName,
             phone_number: event.number,
@@ -104,10 +105,9 @@ const Purchase = () => {
                         <span className="label-text">Product Quantity</span>
                     </label>
                     <input
-                        type="text"
-                        value={item.quantity}
+                        type="number"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("product_quantity", {
+                        {...register("product_quantity",{ min: `${item.minimum_quantity}`, max: `${item.quantity}` }, {
                             required: {
                                 value: true,
                                 message: 'Product Quantity is Required'

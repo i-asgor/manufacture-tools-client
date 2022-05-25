@@ -8,6 +8,7 @@ import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
 import MyReview from './Pages/Dashboard/MyReview';
+import Payment from './Pages/Dashboard/Payment';
 import Users from './Pages/Dashboard/Users';
 import About from './Pages/Home/About';
 import Blog from './Pages/Home/Blog';
@@ -41,6 +42,8 @@ function App() {
           }></Route>
           <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route path='orders' element={<MyOrders></MyOrders>}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
           <Route path='history' element={<MyHistory></MyHistory>}></Route>
           <Route path='profile' element={<MyProfile></MyProfile>}></Route>
