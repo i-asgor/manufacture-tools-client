@@ -17,7 +17,7 @@ const CheckOutForm = ({purchase}) => {
     const { _id, name,email,price } = purchase;
 
     useEffect(() => {
-        fetch('https://damp-taiga-65640.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -84,7 +84,7 @@ const CheckOutForm = ({purchase}) => {
                 purchase: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://damp-taiga-65640.herokuapp.com/purchase/${_id}`, {
+            fetch(`http://localhost:5000/purchase/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

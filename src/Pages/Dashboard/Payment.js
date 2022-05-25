@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L3PNDG3VBRgp3UFSN8gvaGdoZ5Bepl5kD22F
 
 const Payment = () => {
     const {id} = useParams();
-    const url = `https://damp-taiga-65640.herokuapp.com/purchase/${id}`;
+    const url = `http://localhost:5000/purchase/${id}`;
     const {data: purchase, isLoading} = useQuery(['purchase',id],() => fetch(url,{
         method: 'GET',
         headers:{
