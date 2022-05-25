@@ -30,8 +30,8 @@ const ProductRow = ({product,index,refetch}) => {
         <tr>
             <th>{index+1}</th>
             <th>
-            <div class="avatar">
-                <div class="w-16 rounded-full">
+            <div className="avatar">
+                <div className="w-16 rounded-full">
                     <img src={picture} alt={name} />
                 </div>
             </div>

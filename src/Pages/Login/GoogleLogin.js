@@ -36,7 +36,7 @@ const GoogleLogin = () => {
     return (
         <div className='flex flex-col justify-center items-center mx-5'>
             {customError}
-            <button onClick={()=> signInWithGoogle()} class="btn btn-outline btn-primary mb-5">
+            <button onClick={()=> signInWithGoogle()} className="btn btn-outline btn-primary mb-5">
                 <img style={{width: '30px'}} src={google} alt="" />
                 <span className='ml-2'>Google Sign In</span>
             </button>

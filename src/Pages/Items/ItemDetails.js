@@ -14,18 +14,18 @@ const ItemDetails = () => {
 
     return (
         <div className='my-5 max-h-screen md:px-24'>
-            <div class="card md:flex-row w-full bg-base-100 shadow-xl items-center">
-            <figure class="px-10 pt-10">
-                <img src={item.picture} alt={item.name} class="rounded-xl w-screen" />
+            <div className="card md:flex-row w-full bg-base-100 shadow-xl items-center">
+            <figure className="px-10 pt-10">
+                <img src={item.picture} alt={item.name} className="rounded-xl w-screen" />
             </figure>
-            <div class="card-body">
-                <h2 class="card-title">{item.name}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{item.name}</h2>
                 <p><span className='text-2xl text-bold'>Price:</span> {item.price}</p>
                 <p><span className='text-2xl text-bold'>Quantity: </span>{item.quantity}</p>
                 <p><span className='text-2xl text-bold'>Supplier Name:</span> {item.supplier_name}</p>
                 <p><span className='text-2xl text-bold'>Description:</span> {item.description}</p>
-                <div class="card-actions">
-                    <button class="btn btn-primary">Buy Now</button>
+                <div className="card-actions">
+                    <button className="btn btn-primary">Buy Now</button>
                 </div>
             </div>
         </div>

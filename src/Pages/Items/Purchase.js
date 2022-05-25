@@ -59,28 +59,28 @@ const Purchase = () => {
     
     return (
         <div className='my-5 max-h-fill md:px-24'>
-            <div class="flex flex-col md:flex-row w-full">
-            <div class="grid max-h-fill flex-grow card bg-base-300 rounded-box place-items-center">
-            <div class="card w-96 bg-base-100 shadow-xl items-center">
-                <figure class="px-10 pt-10">
-                    <img src={item.picture} alt={item.name} class="rounded-xl w-screen" />
+            <div className="flex flex-col md:flex-row w-full">
+            <div className="grid max-h-fill flex-grow card bg-base-300 rounded-box place-items-center">
+            <div className="card w-96 bg-base-100 shadow-xl items-center">
+                <figure className="px-10 pt-10">
+                    <img src={item.picture} alt={item.name} className="rounded-xl w-screen" />
                 </figure>
-                <div class="card-body">
-                    <h2 class="card-title">{item.name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title">{item.name}</h2>
                     <p><span className='text-2xl text-bold'>Price:</span> {item.price}</p>
                     <p><span className='text-2xl text-bold'>Quantity: </span>{item.quantity}</p>
                     <p><span className='text-2xl text-bold'>Supplier Name:</span> {item.supplier_name}</p>
                     <p><span className='text-2xl text-bold'>Description:</span> {item.description}</p>
-                    <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                    <div className="card-actions">
+                        <button className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>
             </div>
             </div>
-            <div class="divider divider-horizontal">OR</div>
-            <div class="grid max-h-fill flex-grow card bg-base-300 rounded-box place-items-center">
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="card-body">
+            <div className="divider divider-horizontal">OR</div>
+            <div className="grid max-h-fill flex-grow card bg-base-300 rounded-box place-items-center">
+            <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
 
                 

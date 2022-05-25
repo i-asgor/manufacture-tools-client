@@ -9,18 +9,18 @@ const Item = ({item}) => {
         navigate(`/manufacture/${id}`);
     }
     return (
-        <div class="card w-full bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-                <img src={picture} alt={name} class="rounded-xl" />
+        <div className="card w-full bg-base-100 shadow-xl">
+            <figure className="px-10 pt-10">
+                <img src={picture} alt={name} className="rounded-xl" />
             </figure>
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
                 <p><span className='text-2xl text-bold'>Price:</span> {price}</p>
                 <p><span className='text-2xl text-bold'>Quantity: </span>{quantity}</p>
                 <p><span className='text-2xl text-bold'>Supplier Name:</span> {supplier_name}</p>
                 <p><span className='text-2xl text-bold'>Description:</span> {description.slice(0,100) + "............."}</p>
-                <div class="card-actions">
-                <button onClick={()=>itemDetailNavigate(_id)} class="btn btn-primary">Buy Now</button>
+                <div className="card-actions">
+                <button onClick={()=>itemDetailNavigate(_id)} className="btn btn-primary">Buy Now</button>
                 </div>
             </div>
         </div>

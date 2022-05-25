@@ -67,38 +67,38 @@ const Login = () => {
 
     return (
         
-        <div class="hero max-h-screen bg-base-200">
-        <div class="hero-content flex-col">
-        <div class="text-center">
-            <h1 class="text-5xl font-bold">Login now!</h1>
+        <div className="hero max-h-screen bg-base-200">
+        <div className="hero-content flex-col">
+        <div className="text-center">
+            <h1 className="text-5xl font-bold">Login now!</h1>
         </div>
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleLoginForm}>
-            <div class="card-body">
-            <div class="form-control">
-                <label class="label">
-                <span class="label-text">Email</span>
+            <div className="card-body">
+            <div className="form-control">
+                <label className="label">
+                <span className="label-text">Email</span>
                 </label>
-                <input type="email" ref={emailRef} placeholder="email" class="input input-bordered" />
+                <input type="email" ref={emailRef} placeholder="email" className="input input-bordered" />
             </div>
-            <div class="form-control">
-                <label class="label">
-                <span class="label-text">Password</span>
+            <div className="form-control">
+                <label className="label">
+                <span className="label-text">Password</span>
                 </label>
-                <input type="password" ref={passwordRef} placeholder="password" class="input input-bordered" />
-                <label class="label">
-                {/* <a href="#" class="label-text-alt link link-hover">Forgot password?</a> */}
+                <input type="password" ref={passwordRef} placeholder="password" className="input input-bordered" />
+                <label className="label">
+                {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
                 </label>
             </div>
-            <div class="form-control mt-2">
-                <button type='submit' class="btn btn-primary">Login</button>
+            <div className="form-control mt-2">
+                <button type='submit' className="btn btn-primary">Login</button>
             </div>
             </div>
             </form>
             {customError}
-            <p className='mx-auto my-2 px-5'>Already Have an Account?<Link to='/register' class="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
-            <p className='mx-auto my-2 px-5'>Forget Your Password?<button onClick={resetPassword} class="label-text-alt link link-hover ml-2 text-xl text-primary">Reset password?</button></p>
-            <div class="divider px-5">OR</div>
+            <p className='mx-auto my-2 px-5'>Already Have an Account?<Link to='/register' className="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
+            <p className='mx-auto my-2 px-5'>Forget Your Password?<button onClick={resetPassword} className="label-text-alt link link-hover ml-2 text-xl text-primary">Reset password?</button></p>
+            <div className="divider px-5">OR</div>
             <GoogleLogin></GoogleLogin>
             <ToastContainer/>
         </div>
