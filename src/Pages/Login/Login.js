@@ -96,7 +96,7 @@ const Login = () => {
             </div>
             </form>
             {customError}
-            <p className='mx-auto my-2 px-5'>Already Have an Account?<Link to='/register' className="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
+            <p className='mx-auto my-2 px-5'>New to Manufacture?<Link to='/register' className="label-text-alt link link-hover ml-2 text-xl text-primary">Register</Link></p>
             <p className='mx-auto my-2 px-5'>Forget Your Password?<button onClick={resetPassword} className="label-text-alt link link-hover ml-2 text-xl text-primary">Reset password?</button></p>
             <div className="divider px-5">OR</div>
             <GoogleLogin></GoogleLogin>

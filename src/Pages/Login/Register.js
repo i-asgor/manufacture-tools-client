@@ -74,7 +74,6 @@ const Register = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" />
                             <label className="label">
-                            <Link to='' className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-2">
@@ -83,7 +82,7 @@ const Register = () => {
                     </div>
                 </form>
                 {customError}
-                <p className='mx-auto my-2'>New to Manufacture?<Link to='/Login' className="label-text-alt link link-hover ml-2 text-xl text-primary">Login</Link></p>
+                <p className='mx-auto my-2'>Already Have an Account?<Link to='/Login' className="label-text-alt link link-hover ml-2 text-xl text-primary">Login</Link></p>
                 <div className="divider px-5">OR</div>
                 <GoogleLogin></GoogleLogin>
             </div>
