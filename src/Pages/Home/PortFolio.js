@@ -3,7 +3,7 @@ import profile from '../../images/profile.jpg'
 
 const PortFolio = () => {
     return (
-        <div className="card max-w-xl bg-base-100 shadow-xl mx-auto min-h-full">
+        <div className="card max-w-xl bg-base-100 shadow-xl mx-auto min-h-[100%]">
             <figure><img src={profile} alt="Asgor Ali" className='w-96' /></figure>
             <div className="card-body text-center">
                 <h2 className="text-2xl font-bold">Name: Md Abdullah Al Asgor Ali</h2>
