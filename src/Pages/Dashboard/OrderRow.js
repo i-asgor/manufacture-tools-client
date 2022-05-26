@@ -11,7 +11,7 @@ const OrderRow = ({purchase,index,refetch,setDeleteOrder}) => {
             <td>{userEmail}</td>
             <td>{quantity}</td>
             <td>
-                <label onClick={() => setDeleteOrder(purchase)} for="delete-modal" className="btn btn-xs btn-error">Cancel</label>
+                <label onClick={() => setDeleteOrder(purchase)} htmlFor="delete-modal" className="btn btn-xs btn-error">Cancel</label>
                 
             </td>
             <ToastContainer></ToastContainer>

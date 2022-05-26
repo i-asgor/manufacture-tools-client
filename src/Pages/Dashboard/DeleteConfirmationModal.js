@@ -31,7 +31,7 @@ const DeleteConfirmationModal = ({deleteOrder,refetch,setDeleteOrder}) => {
                 <h3 className="font-bold text-lg">Are You sure You want to Delete: {purchase}</h3>
                 <div className="modal-action">
                 <button onClick={()=>handleDelete(userEmail)} className='btn btn-xs btn-error'>Delete</button>
-                <label for="delete-modal" className="btn btn-xs btn-error">Cancel</label>
+                <label htmlFor="delete-modal" className="btn btn-xs btn-error">Cancel</label>
                 </div>
             </div>
             </div>
