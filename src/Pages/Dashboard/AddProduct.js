@@ -3,7 +3,6 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -15,8 +14,6 @@ const AddProduct = () => {
     reset
   } = useForm();
   const [user] = useAuthState(auth);
-
-  const navigate = useNavigate();
 
   const imageStorageKey = "8584c8af2c5de177e5dadcfa3c9ee126";
 
