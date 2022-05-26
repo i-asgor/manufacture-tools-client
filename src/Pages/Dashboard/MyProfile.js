@@ -1,11 +1,18 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
+import { useQuery } from 'react-query';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyProfile = () => {
     const [user] =useAuthState(auth);
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://damp-taiga-65640.herokuapp.com/users/${user.email}`,{
+        method: 'GET',
+        
+    }).then(res => res.json()));
+    // console.log(users)
+
     const {
         register,
         formState: { errors },
@@ -23,7 +30,7 @@ const MyProfile = () => {
               phone: event.number,
               address: event.address
             };
-            fetch(`https://damp-taiga-65640.herokuapp.com/${user.email}`, {
+            fetch(`https://damp-taiga-65640.herokuapp.com/user/${user.email}`, {
               method: "PUT",
               headers: {
                 "content-type": "application/json",
@@ -41,7 +48,7 @@ const MyProfile = () => {
                 }
               });
     
-            console.log(profile);
+            // console.log(profile);
       };
 
     return (
@@ -52,8 +59,10 @@ const MyProfile = () => {
                 <img src={user.photoURL} alt={user.displayName} className="rounded-xl" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Name: {user.displayName}</h2>
+                <h2 className="card-title">Name: {users.name}</h2>
                 <p>Email: {user.email}</p>                
+                <p>Phone: {users.phone}</p>                
+                <p>Address: {users.address}</p>                
             </div>            
             <ToastContainer></ToastContainer>
         </div>
