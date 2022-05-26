@@ -32,7 +32,6 @@ const UserData = ({user,index,refetch}) => {
                     role !== 'admin' && <button onClick={makeAdmin} className='btn btn-xs'>Make Admin</button>
                 }
             </td>
-            <td><button className='btn btn-xs'>X</button></td>
             <ToastContainer></ToastContainer>
         </tr>
     );
