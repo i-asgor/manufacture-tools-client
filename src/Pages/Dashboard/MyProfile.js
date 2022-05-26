@@ -59,10 +59,10 @@ const MyProfile = () => {
                 <img src={user.photoURL} alt={user.displayName} className="rounded-xl" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Name: {users.name}</h2>
+                <h2 className="card-title">Name: {users?.name}</h2>
                 <p>Email: {user.email}</p>                
-                <p>Phone: {users.phone}</p>                
-                <p>Address: {users.address}</p>                
+                <p>Phone: {users?.phone}</p>                
+                <p>Address: {users?.address}</p>                
             </div>            
             <ToastContainer></ToastContainer>
         </div>
