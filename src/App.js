@@ -4,6 +4,7 @@ import AddProduct from './Pages/Dashboard/AddProduct';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import ManageOrder from './Pages/Dashboard/ManageOrder';
 import ManageProduct from './Pages/Dashboard/ManageProduct';
+import MyDashboard from './Pages/Dashboard/MyDashboard';
 import MyHistory from './Pages/Dashboard/MyHistory';
 import MyOrders from './Pages/Dashboard/MyOrders';
 import MyProfile from './Pages/Dashboard/MyProfile';
@@ -41,7 +42,7 @@ function App() {
             </RequireAuth>
           }></Route>
           <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
-          <Route index element={<MyOrders></MyOrders>}></Route>
+          <Route index element={<MyDashboard></MyDashboard>}></Route>
           <Route path='orders' element={<MyOrders></MyOrders>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='review' element={<MyReview></MyReview>}></Route>
