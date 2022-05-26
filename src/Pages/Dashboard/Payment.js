@@ -9,18 +9,20 @@ import CheckOutForm from './CheckOutForm';
 const stripePromise = loadStripe('pk_test_51L3PNDG3VBRgp3UFSN8gvaGdoZ5Bepl5kD22FkZHVHtVCcJyrUhudU8IajcayQAFZJjlLYhUkP2ntoNWUHUT86oU00mLsvTnuZ');
 
 const Payment = () => {
-    const {id} = useParams();
+    const {id} = useParams();  
+
     const url = `http://localhost:5000/purchase/${id}`;
-    const {data: purchase, isLoading} = useQuery(['purchase',id],() => fetch(url,{
+
+    const { data: purchase, isLoading } = useQuery(['purchase', id], () => fetch(url, {
         method: 'GET',
-        headers:{
+        headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
-    }).then(res=>res.json()));
-    console.log(purchase)
+    }).then(res => res.json()));
+    // console.log(purchase)
 
     if(isLoading){
-        return <Loading></Loading>
+        return <Loading></Loading>;
     }
 
     return (
