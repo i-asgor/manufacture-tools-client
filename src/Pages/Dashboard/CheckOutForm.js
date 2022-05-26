@@ -85,7 +85,7 @@ const CheckOutForm = ({purchase}) => {
                 purchase: _id,
                 transactionId: purchaseIntent.id
             }
-            fetch(`http://localhost:5000/purchase/${_id}`, {
+            fetch(`https://damp-taiga-65640.herokuapp.com/purchase/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
