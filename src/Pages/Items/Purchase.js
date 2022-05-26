@@ -8,8 +8,8 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const {id} = useParams();
     const [item, setItem] = useState({});
-    const [user, loading, error] = useAuthState(auth);
-    const { register, formState: { errors }, handleSubmit,reset } = useForm();
+    const [user] = useAuthState(auth);
+    const { register, formState: { errors }, handleSubmit,reset } = useForm({mode: "onChange"});
 
     
 
@@ -69,11 +69,8 @@ const Purchase = () => {
                     <h2 className="card-title">{item.name}</h2>
                     <p><span className='text-2xl text-bold'>Price:</span> {item.price}</p>
                     <p><span className='text-2xl text-bold'>Quantity: </span>{item.quantity}</p>
-                    <p><span className='text-2xl text-bold'>Supplier Name:</span> {item.supplier_name}</p>
+                    <p><span className='text-2xl text-bold'>Minimum Order Quantity: </span>{item.minimum_quantity}</p>
                     <p><span className='text-2xl text-bold'>Description:</span> {item.description}</p>
-                    <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
-                    </div>
                 </div>
             </div>
             </div>
@@ -107,13 +104,11 @@ const Purchase = () => {
                     <input
                         type="number"
                         className="input input-bordered w-full max-w-xs"
-                        {...register("product_quantity",{ min: `${item.minimum_quantity}`, max: `${item.quantity}` }, {
-                            required: {
-                                value: true,
-                                message: 'Product Quantity is Required'
-                            }
-                        })}
+                        {...register("product_quantity",{required: true, min: `${item.minimum_quantity}`, max: `${item.quantity}` })}
                     />
+                    {errors.product_quantity && errors.product_quantity.type === "required" && <span className='text-red-500'>Product Quantity is Required</span> }
+                    {errors.product_quantity && errors.product_quantity.type === "min" && <span className='text-red-500'>Min length is {item.minimum_quantity}</span> }
+                    {errors.product_quantity && errors.product_quantity.type === "max" && <span className='text-red-500'>Max length is {item.quantity}</span> }
                     <label className="label">
                         {errors.product_quantity?.type === 'required' && <span className="label-text-alt text-red-500">{errors.product_quantity.message}</span>}
                     </label>
