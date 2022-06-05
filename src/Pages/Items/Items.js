@@ -6,15 +6,13 @@ import Item from './Item';
 const Items = () => {
     const [items] = CustomItem([]);
 
-    if(!items){
-        return <Loading></Loading>
-    }
     
     return (
         <div>
              <h1 className="text-5xl font-bold mx-2">Manufacture Items</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-5'>
                 {
+                    ((items.length) === 0)?<Loading></Loading>:
                     items.slice(0,6).map(item => <Item key={item._id} item={item}></Item>)
                 }
             </div>
