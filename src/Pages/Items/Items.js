@@ -4,9 +4,9 @@ import Loading from '../Shared/Loading';
 import Item from './Item';
 
 const Items = () => {
-    const [items,isLoading] = CustomItem([]);
+    const [items] = CustomItem([]);
 
-    if(isLoading){
+    if(!items){
         return <Loading></Loading>
     }
     
