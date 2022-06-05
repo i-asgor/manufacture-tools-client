@@ -13,7 +13,7 @@ const Users = () => {
     // console.log(users)
     
     if (isLoading) {
-        return <Loading></Loading>
+        return <Loading></Loading>;
     }
     return (
         <div>
@@ -29,11 +29,11 @@ const Users = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user,index) => <UserData
-                            key={user._id}
-                            index={index}
-                            user={user}
-                            refetch={refetch}
+                            users?.map((user,index) => <UserData
+                                key={user._id}
+                                index={index}
+                                user={user}
+                                refetch={refetch}
                             ></UserData>)
                         }                    
                     </tbody>

@@ -18,7 +18,7 @@ const Item = ({item}) => {
                 <p><span className='text-2xl text-bold'>Price:</span> {price}</p>
                 <p><span className='text-2xl text-bold'>Quantity: </span>{quantity}</p>
                 <p><span className='text-2xl text-bold'>Minimum Order Quantity:</span> {minimum_quantity}</p>
-                <p><span className='text-2xl text-bold'>Description:</span> {description.slice(0,100) + "............."}</p>
+                <p><span className='text-2xl text-bold'>Description:</span> {description?.slice(0,100) + "............."}</p>
                 <div className="card-actions">
                 <button onClick={()=>itemDetailNavigate(_id)} className="btn btn-primary">Buy Now</button>
                 </div>

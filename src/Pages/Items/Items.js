@@ -1,9 +1,14 @@
 import React from 'react';
 import CustomItem from '../../Hooks/CustomItem';
+import Loading from '../Shared/Loading';
 import Item from './Item';
 
 const Items = () => {
-    const [items] = CustomItem([]);
+    const [items,isLoading] = CustomItem([]);
+
+    if(isLoading){
+        return <Loading></Loading>
+    }
     
     return (
         <div>

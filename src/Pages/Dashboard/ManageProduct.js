@@ -13,7 +13,7 @@ const ManageProduct = () => {
     if(isLoading){
         return <Loading></Loading>;
     }
-    console.log(products)
+    // console.log(products)
 
     return (
         <div>
