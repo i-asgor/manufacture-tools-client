@@ -22,7 +22,7 @@ This project was React Bootstrapped with [AA HAND TOOLS MANUFACTURING](https://m
 
 ## list of technologies
 
-* React Router, React Router Dom, React Bootstrap and Bootstrap
+* React Router, React Router Dom, TailwindCSS & DaisyUI
 * React Firebase & React Firebase Hooks
 * Axios, React Toastify & React Hook Form
 * Firebase hosting
